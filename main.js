@@ -20,6 +20,9 @@ let minceY = 100;
 let minceSirka = 36;
 let minceVyska = 36;
 
+let score = document.querySelector('#score');
+let hodnotaMince = 1
+
 // tato funkce se spustí při načtení stránky
 // tj. ve chvíli, kdy je načtené komplet HTML, CSS a všechny obrázky a zvuky
 // umisteni panacka a mince pri spusteni hry
@@ -42,14 +45,43 @@ function novaMince() {
 
 }
 
+// po najeti na minci pricte bod
+function prictiBod() {
+	score = score + hodnotaMince;
+}
+
 function vemMinci() {
 
 	if (!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY)) {
-
+		// score
+		prictiBod();
 		// nová mince
 		novaMince();
 	}
 }
+// pohyb panacka
+
+document.addEventListener("keydown", function (event) {
+	if (event.key === "ArrowLeft") {
+		panacekX = panacekX - 10
+		panacek.style.left = panacekX + "px"
+
+
+	} else if (event.key === "ArrowRight") {
+		panacekX = panacekX + 10
+		panacek.style.left = panacekX + "px"
+
+	} else if (event.key === "ArrowUp") {
+		panacekY = panacekY - 10
+		panacek.style.top = panacekY + "px"
+
+	} else if (event.key === "ArrowDown") {
+		panacekY = panacekY + 10
+		panacek.style.top = panacekY + "px"
+	}
+})
+
+
 // panacek a mince se prekryvaji
 
 //function bod() {
@@ -76,29 +108,6 @@ function vemMinci() {
 
 //}
 
-
-
-// pohyb panacka
-
-document.addEventListener("keydown", function (event) {
-	if (event.key === "ArrowLeft") {
-		panacekX = panacekX - 10
-		panacek.style.left = panacekX + "px"
-
-
-	} else if (event.key === "ArrowRight") {
-		panacekX = panacekX + 10
-		panacek.style.left = panacekX + "px"
-
-	} else if (event.key === "ArrowUp") {
-		panacekY = panacekY - 10
-		panacek.style.top = panacekY + "px"
-
-	} else if (event.key === "ArrowDown") {
-		panacekY = panacekY + 10
-		panacek.style.top = panacekY + "px"
-	}
-})
 
 
 
