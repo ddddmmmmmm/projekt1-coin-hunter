@@ -23,6 +23,8 @@ let minceVyska = 36;
 let score = document.querySelector('#score');
 let hodnotaMince = 1;
 
+
+
 // tato funkce se spustí při načtení stránky
 // tj. ve chvíli, kdy je načtené komplet HTML, CSS a všechny obrázky a zvuky
 // umisteni panacka a mince pri spusteni hry
@@ -51,7 +53,6 @@ function prictiBod() {
 
 }
 
-
 // nefunguje a nevim proc
 function overMinci() {
 
@@ -60,6 +61,7 @@ function overMinci() {
 		prictiBod();
 		// nová mince
 		novaMince();
+
 	}
 }
 // pohyb panacka
@@ -72,11 +74,13 @@ document.addEventListener("keydown", function (event) {
 		prictiBod();
 
 
+
 	} else if (event.key === "ArrowRight") {
 		panacekX = panacekX + 10
 		panacek.style.left = panacekX + "px"
 		overMinci();
 		prictiBod();
+
 
 	} else if (event.key === "ArrowUp") {
 		panacekY = panacekY - 10
@@ -84,11 +88,13 @@ document.addEventListener("keydown", function (event) {
 		overMinci();
 		prictiBod();
 
+
 	} else if (event.key === "ArrowDown") {
 		panacekY = panacekY + 10
 		panacek.style.top = panacekY + "px"
 		overMinci();
 		prictiBod();
+
 	}
 })
 
