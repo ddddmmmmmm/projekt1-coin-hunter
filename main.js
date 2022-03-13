@@ -21,7 +21,7 @@ let minceSirka = 36;
 let minceVyska = 36;
 
 let score = document.querySelector('#score');
-let hodnotaMince = 1
+let hodnotaMince = 1;
 
 // tato funkce se spustí při načtení stránky
 // tj. ve chvíli, kdy je načtené komplet HTML, CSS a všechny obrázky a zvuky
@@ -48,11 +48,12 @@ function novaMince() {
 // po najeti na minci pricte bod
 function prictiBod() {
 	score = score + hodnotaMince;
+
 }
 
 
 // nefunguje a nevim proc
-function vemMinci() {
+function overMinci() {
 
 	if (!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY)) {
 		// score
@@ -67,19 +68,27 @@ document.addEventListener("keydown", function (event) {
 	if (event.key === "ArrowLeft") {
 		panacekX = panacekX - 10
 		panacek.style.left = panacekX + "px"
+		overMinci();
+		prictiBod();
 
 
 	} else if (event.key === "ArrowRight") {
 		panacekX = panacekX + 10
 		panacek.style.left = panacekX + "px"
+		overMinci();
+		prictiBod();
 
 	} else if (event.key === "ArrowUp") {
 		panacekY = panacekY - 10
 		panacek.style.top = panacekY + "px"
+		overMinci();
+		prictiBod();
 
 	} else if (event.key === "ArrowDown") {
 		panacekY = panacekY + 10
 		panacek.style.top = panacekY + "px"
+		overMinci();
+		prictiBod();
 	}
 })
 
