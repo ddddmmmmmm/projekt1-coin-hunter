@@ -50,6 +50,8 @@ function prictiBod() {
 	score = score + hodnotaMince;
 }
 
+
+// nefunguje a nevim proc
 function vemMinci() {
 
 	if (!(panacekX + panacekSirka < minceX || minceX + minceSirka < panacekX || panacekY + panacekVyska < minceY || minceY + minceVyska < panacekY)) {
